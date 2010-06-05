@@ -1,0 +1,547 @@
+<HTML>
+<HEAD>
+<TITLE>TLC Main.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="TLC Main.vi"></A><H2>TLC Main.vi</H2>
+<P>This is the main user interface for the Theatre Light Control Software.</P>
+<HR>
+<H3>Connector Pane</H3>
+<P><IMG SRC="TLC Mainc.png" ALT="TLC Main.vi"></P>
+<HR>
+<H3>Front Panel</H3>
+<P><IMG SRC="TLC Mainp.png" ALT="TLC Main.vi"></P>
+<HR>
+<H3>Controls and Indicators</H3>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ci32.png" ALT="ci32"></P>
+</TD>
+<TD>
+<B>Cue List[Cue List]</B> <P>Contains information about the recorded cue, and the cue number.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Play[Play]</B> <P>Plays the recorded cues.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Record[Record]</B> <P>Records a cue.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>Stop[Stop]</B> <P>Stops the application.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>error in (no error)</B> <P><B>error in</B> can accept error information wired from VIs previously called. Use this information to decide if any functionality should be bypassed in the event of errors from other VIs.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error. </P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ci32.png" ALT="ci32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error in</B> control on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ccclst.png" ALT="ccclst"></P>
+</TD>
+<TD>
+<B>Cue Information</B> </TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>Cue Name</B> <P>Used to identify the cue in the cue list</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cu32.png" ALT="cu32"></P>
+</TD>
+<TD>
+<B>Wait Time (s)</B> <P>The period of time (in seconds) that the cue waits before changing the color and intensity of the channel array.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cu32.png" ALT="cu32"></P>
+</TD>
+<TD>
+<B>Fade Time (s)</B> <P>The period of time (in seconds) that the cue spends transitioning from the current channel colors and intensities to the target colors and intensities.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cu32.png" ALT="cu32"></P>
+</TD>
+<TD>
+<B>Follow Time (s)</B> <P>Follow Time (s) - The period of time (in seconds) that the cue spends holding the current cue's colors and intensities before loading the next cue.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="c2dnclst.png" ALT="c2dnclst"></P>
+</TD>
+<TD>
+<B>Channels</B> <P>A 2D array of channels representing the theater lighting system.  Each channel consists of a channel number, an intensity (0-100) and a color.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cnclst.png" ALT="cnclst"></P>
+</TD>
+<TD>
+<B>UI Channel</B> </TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cdbl.png" ALT="cdbl"></P>
+</TD>
+<TD>
+<B>Intensity</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cu32.png" ALT="cu32"></P>
+</TD>
+<TD>
+<B> Color</B> </TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ci32.png" ALT="ci32"></P>
+</TD>
+<TD>
+<B>Channel</B> </TD>
+</TR>
+</Table>
+</UL>
+</UL>
+</UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cerrcodeclst.png" ALT="cerrcodeclst"></P>
+</TD>
+<TD>
+<B>error out</B> <P><B>error out</B> passes error or warning information out of a VI to be used by other VIs.</P>
+<P></P>
+<P>Right-click the <B>error out</B> indicator on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<UL>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cbool.png" ALT="cbool"></P>
+</TD>
+<TD>
+<B>status</B> <P><B>status</B> is TRUE (X) if an error occurred or FALSE (checkmark) to indicate a warning or that no error occurred.</P>
+<P></P>
+<P>Right-click the <B>error out</B> indicator on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="ci32.png" ALT="ci32"></P>
+</TD>
+<TD>
+<B>code</B> <P><B>code</B> is the error or warning code.</P>
+<P></P>
+<P>Right-click the <B>error out</B> indicator on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="cstr.png" ALT="cstr"></P>
+</TD>
+<TD>
+<B>source</B> <P><B>source</B> string describes the origin of the error or warning.</P>
+<P></P>
+<P>Right-click the <B>error out</B> indicator on the front panel and select <B>Explain Error</B> or <B>Explain Warning</B> from the shortcut menu for more information about the error.</P>
+</TD>
+</TR>
+</Table>
+</UL>
+<HR>
+<H3>Block Diagram</H3>
+<P><IMG SRC="TLC Maind.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind1.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind2.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind3.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind4.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind5.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind6.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind7.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind8.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind9.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind10.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind11.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind12.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind13.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind14.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind15.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind16.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind17.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind18.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind19.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind20.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind21.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind22.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind23.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind24.png" ALT="TLC Main.vi"></P>
+<P><IMG SRC="TLC Maind25.png" ALT="TLC Main.vi"></P>
+<HR>
+<H3>List of SubVIs and Express VIs with Configuration Information</H3>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Simple Error Handleri.png" ALT="Simple Error Handler.vi"></P>
+</TD>
+<TD>
+<B><P>Simple Error Handler.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 8.5\vi.lib\Utility\error.llb\Simple Error Handler.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Merge Errorsi.png" ALT="Merge Errors.vi"></P>
+</TD>
+<TD>
+<B><P>Merge Errors.vi</P>
+</B><P>C:\Program Files\National Instruments\LabVIEW 8.5\vi.lib\Utility\error.llb\Merge Errors.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Shutdowni.png" ALT="tlc_Shutdown.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_Shutdown.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Integration\tlc_Shutdown.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Cue Modulei.png" ALT="tlc_Cue Module.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_Cue Module.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Modules\Cue\tlc_Cue Module.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="channelctli.png" ALT="channel.ctl"></P>
+</TD>
+<TD>
+<B><P>channel.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Controls\channel.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Cue_Informationctli.png" ALT="tlc_Cue_Information.ctl"></P>
+</TD>
+<TD>
+<B><P>tlc_Cue_Information.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Controls\tlc_Cue_Information.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Cue_Information Commandctli.png" ALT="tlc_Cue_Information Command.ctl"></P>
+</TD>
+<TD>
+<B><P>tlc_Cue_Information Command.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Modules\Cue\tlc_Cue_Information Command.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_File Modulei.png" ALT="tlc_File Module.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_File Module.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Modules\File\tlc_File Module.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_File_Command Controlctli.png" ALT="tlc_File_Command Control.ctl"></P>
+</TD>
+<TD>
+<B><P>tlc_File_Command Control.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Modules\File\tlc_File_Command Control.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_User Interface Commandctli.png" ALT="tlc_User Interface Command.ctl"></P>
+</TD>
+<TD>
+<B><P>tlc_User Interface Command.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Controls\tlc_User Interface Command.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_User Interface Data Typectli.png" ALT="tlc_User Interface Data Type.ctl"></P>
+</TD>
+<TD>
+<B><P>tlc_User Interface Data Type.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Controls\tlc_User Interface Data Type.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Stopi.png" ALT="tlc_Stop.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_Stop.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Integration\tlc_Stop.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Functionsctli.png" ALT="tlc_Functions.ctl"></P>
+</TD>
+<TD>
+<B><P>tlc_Functions.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Controls\tlc_Functions.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Consumer Controlctli.png" ALT="tlc_Consumer Control.ctl"></P>
+</TD>
+<TD>
+<B><P>tlc_Consumer Control.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Controls\tlc_Consumer Control.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Playi.png" ALT="tlc_Play.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_Play.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Integration\tlc_Play.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="Play Structure Namesctli.png" ALT="Play Structure Names.ctl"></P>
+</TD>
+<TD>
+<B><P>Play Structure Names.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Controls\Play Structure Names.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Loadi.png" ALT="tlc_Load.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_Load.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Integration\tlc_Load.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Recordi.png" ALT="tlc_Record.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_Record.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Integration\tlc_Record.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Initializei.png" ALT="tlc_Initialize.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_Initialize.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Integration\tlc_Initialize.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Timing Stop Modulei.png" ALT="tlc_Timing Stop Module.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_Timing Stop Module.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Modules\Timing\tlc_Timing Stop Module.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Timing Stop Module Controlctli.png" ALT="tlc_Timing Stop Module Control.ctl"></P>
+</TD>
+<TD>
+<B><P>tlc_Timing Stop Module Control.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Modules\Timing\tlc_Timing Stop Module Control.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Error Modulei.png" ALT="tlc_Error Module.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_Error Module.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Modules\Error\tlc_Error Module.vi</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Error Module Command Controlctli.png" ALT="tlc_Error Module Command Control.ctl"></P>
+</TD>
+<TD>
+<B><P>tlc_Error Module Command Control.ctl</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Modules\Error\tlc_Error Module Command Control.ctl</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="TLC Main Instance          15 16Saved   TLC Main i.png" ALT="TLC Main.vi:Instance:Instance          15 16Saved   TLC Main .vi"></P>
+</TD>
+<TD>
+<B><P>File Dialog2</P>
+</B><P>File Dialog</P>
+<P>Displays a dialog box with which you can specify the path to a file or directory.</P>
+<P>--------------------</P>
+<P></P>
+<P>This Express VI is configured as follows:</P>
+<P></P>
+<P>&lt;b&gt;Selection Mode:&lt;/b&gt;</P>
+<P>Existing file</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="TLC Main Instance          14 16Saved   TLC Main i.png" ALT="TLC Main.vi:Instance:Instance          14 16Saved   TLC Main .vi"></P>
+</TD>
+<TD>
+<B><P>File Dialog</P>
+</B><P>File Dialog</P>
+<P>Displays a dialog box with which you can specify the path to a file or directory.</P>
+<P>--------------------</P>
+<P></P>
+<P>This Express VI is configured as follows:</P>
+<P></P>
+<P>&lt;b&gt;Selection Mode:&lt;/b&gt;</P>
+<P>New file</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="tlc_Record Dialog Boxi.png" ALT="tlc_Record Dialog Box.vi"></P>
+</TD>
+<TD>
+<B><P>tlc_Record Dialog Box.vi</P>
+</B><P>C:\p4\CustomerEducation\CourseMaterial\InDevelopment\LabVIEW Intermediate I\8.5\English\Solutions\Exercise 9-2\Integration\tlc_Record Dialog Box.vi</P>
+</TD>
+</TR>
+</Table>
+<HR>
+<H3>VI Revision History</H3>
+<P>&quot;TLC Main.vi History&quot;</P>
+<P>Current Revision:   54</P>
+<HR>
+<H3>Position in Hierarchy</H3>
+<P><IMG SRC="TLC Mainh.png" ALT="TLC Main.vi"></P>
+</BODY>
+</HTML>
